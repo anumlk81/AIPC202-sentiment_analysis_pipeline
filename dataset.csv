@@ -1,0 +1,16 @@
+text,expected
+this movie was great,positive
+i love this product,positive
+amazing experience overall,positive
+fantastic service and quality,positive
+i am so happy with this,positive
+this was a terrible experience,negative
+i hate this product,negative
+awful and horrible service,negative
+the worst thing i have ever seen,negative
+i am so sad about this,negative
+the product is okay,neutral
+it was an average experience,neutral
+the service was fine,neutral
+nothing special just mediocre,neutral
+it was okay i guess,neutral

@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'LOAD MODEL NEGATIVE NEUTRAL POSITIVE SAVE VECTORcommand : LOAD VECTOR\n               | SAVE VECTOR\n               | LOAD MODEL\n               | SAVE MODEL\n               | sentimentsentiment : POSITIVE\n                 | NEGATIVE\n                 | NEUTRAL'
+_lr_signature = 'ANALYSE DATASET LOAD MODEL NEGATIVE NEUTRAL POSITIVE RESULTS SAVE VECTORcommand : LOAD VECTOR\n               | SAVE VECTOR\n               | LOAD MODEL\n               | SAVE MODEL\n                | ANALYSE DATASET\n               | SAVE RESULTS\n               | sentimentsentiment : POSITIVE\n                 | NEGATIVE\n                 | NEUTRAL'
     
-_lr_action_items = {'LOAD':([0,],[2,]),'SAVE':([0,],[3,]),'POSITIVE':([0,],[5,]),'NEGATIVE':([0,],[6,]),'NEUTRAL':([0,],[7,]),'$end':([1,4,5,6,7,8,9,10,11,],[0,-5,-6,-7,-8,-1,-3,-2,-4,]),'VECTOR':([2,3,],[8,10,]),'MODEL':([2,3,],[9,11,]),}
+_lr_action_items = {'LOAD':([0,],[2,]),'SAVE':([0,],[3,]),'ANALYSE':([0,],[4,]),'POSITIVE':([0,],[6,]),'NEGATIVE':([0,],[7,]),'NEUTRAL':([0,],[8,]),'$end':([1,5,6,7,8,9,10,11,12,13,14,],[0,-7,-8,-9,-10,-1,-3,-2,-4,-6,-5,]),'VECTOR':([2,3,],[9,11,]),'MODEL':([2,3,],[10,12,]),'RESULTS':([3,],[13,]),'DATASET':([4,],[14,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'command':([0,],[1,]),'sentiment':([0,],[4,]),}
+_lr_goto_items = {'command':([0,],[1,]),'sentiment':([0,],[5,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -31,8 +31,10 @@ _lr_productions = [
   ('command -> SAVE VECTOR','command',2,'p_command','parser.py',6),
   ('command -> LOAD MODEL','command',2,'p_command','parser.py',7),
   ('command -> SAVE MODEL','command',2,'p_command','parser.py',8),
-  ('command -> sentiment','command',1,'p_command','parser.py',9),
-  ('sentiment -> POSITIVE','sentiment',1,'p_sentiment','parser.py',16),
-  ('sentiment -> NEGATIVE','sentiment',1,'p_sentiment','parser.py',17),
-  ('sentiment -> NEUTRAL','sentiment',1,'p_sentiment','parser.py',18),
+  ('command -> ANALYSE DATASET','command',2,'p_command','parser.py',9),
+  ('command -> SAVE RESULTS','command',2,'p_command','parser.py',10),
+  ('command -> sentiment','command',1,'p_command','parser.py',11),
+  ('sentiment -> POSITIVE','sentiment',1,'p_sentiment','parser.py',18),
+  ('sentiment -> NEGATIVE','sentiment',1,'p_sentiment','parser.py',19),
+  ('sentiment -> NEUTRAL','sentiment',1,'p_sentiment','parser.py',20),
 ]

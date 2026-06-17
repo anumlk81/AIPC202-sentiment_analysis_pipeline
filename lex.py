@@ -1,6 +1,5 @@
 import ply.lex as lex
 
-#tokens for sentiment analysis
 tokens = (
     'POSITIVE',
     'NEGATIVE',
@@ -9,31 +8,60 @@ tokens = (
     'SAVE',
     'VECTOR',
     'MODEL',
-
-
+    'ANALYSE',
+    'DATASET',
+    'RESULTS'
 )
 
-#regural expressions for tokens
-t_POSITIVE = r'\b(positive|good|great|excellent|amazing|fantastic|happy|love)\b'
-t_NEGATIVE = r'\b(negative|bad|terrible|awful|horrible|sad|hate)\b'
-t_NEUTRAL = r'\b(neutral|okay|fine|average|mediocre)\b'
-t_LOAD = r'\bload\b'
-t_SAVE = r'\bsave\b'
-t_VECTOR = r'\bvector\b'
-t_MODEL = r'\bmodel\b'
+# Use functions for keyword tokens so PLY prioritises them correctly
+def t_LOAD(t):
+    r'\bload\b'
+    return t
 
-#A regular expression with some action code. 
+def t_SAVE(t):
+    r'\bsave\b'
+    return t
+
+def t_VECTOR(t):
+    r'\bvector\b'
+    return t
+
+def t_MODEL(t):
+    r'\bmodel\b'
+    return t
+
+def t_POSITIVE(t):
+    r'\b(positive|good|great|excellent|amazing|fantastic|happy|love)\b'
+    return t
+
+def t_NEGATIVE(t):
+    r'\b(negative|bad|terrible|awful|horrible|sad|hate)\b'
+    return t
+
+def t_NEUTRAL(t):
+    r'\b(neutral|okay|fine|average|mediocre)\b'
+    return t
+
+def t_ANALYSE(t):
+    r'\banalyse\b'
+    return t
+
+def t_DATASET(t):
+    r'\bdataset\b'
+    return t
+
+def t_RESULTS(t):
+    r'\bresults\b'
+    return t
+
 def t_newline(t):
     r'\n+'
     t.lexer.lineno += len(t.value)
 
-#A string containing ignored characters (spaces and tabs)
-t_ignore  = ' \t'
+t_ignore = ' \t'
 
-#Error handling rule
 def t_error(t):
     print(f"Illegal character '{t.value[0]}'")
     t.lexer.skip(1)
 
-#Build the lexer
 lexer = lex.lex()

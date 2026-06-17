@@ -6,6 +6,8 @@ def p_command(p):
                | SAVE VECTOR
                | LOAD MODEL
                | SAVE MODEL
+                | ANALYSE DATASET
+               | SAVE RESULTS
                | sentiment'''
     if len(p)==3:
         p[0] = (p[1], p[2])
