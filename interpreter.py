@@ -1,5 +1,3 @@
-# interpreter.py
-
 from textblob import TextBlob
 import csv
 
@@ -155,7 +153,7 @@ class Interpreter:
             self.analyse_sentiment(command[1])
 
         elif action == "analyse":
-            self.analyse_dataset(command[1])
+            self.analyse_dataset(command[1] + ".csv")
 
         else:
             print(f"[Interpreter] Unknown command: {command}")

@@ -1,0 +1,19 @@
+TEXT                                          EXPECTED     PREDICTED    POLARITY   MATCH
+------------------------------------------------------------------------------------------
+this movie was great                          positive     POSITIVE     0.8        YES
+i love this product                           positive     POSITIVE     0.5        YES
+amazing experience overall                    positive     POSITIVE     0.3        YES
+fantastic service and quality                 positive     POSITIVE     0.4        YES
+i am so happy with this                       positive     POSITIVE     0.8        YES
+this was a terrible experience                negative     NEGATIVE     -1.0       YES
+i hate this product                           negative     NEGATIVE     -0.8       YES
+awful and horrible service                    negative     NEGATIVE     -1.0       YES
+the worst thing i have ever seen              negative     NEGATIVE     -1.0       YES
+i am so sad about this                        negative     NEGATIVE     -0.5       YES
+the product is okay                           neutral      POSITIVE     0.5        NO
+it was an average experience                  neutral      NEGATIVE     -0.15      NO
+the service was fine                          neutral      POSITIVE     0.4167     NO
+nothing special just mediocre                 neutral      NEUTRAL      -0.0714    YES
+it was okay i guess                           neutral      POSITIVE     0.5        NO
+------------------------------------------------------------------------------------------
+Total: 15 | Correct: 11 | Accuracy: 73.3%
